@@ -5,9 +5,8 @@ import librosa.display
 from midiutil import MIDIFile
 
 
-def detect_notes_with_pitch(audio_file, sr=None, hop_length=512, 
-                           threshold=0.5, min_note_distance_sec=0.1, max_note_duration_sec=5.0):
-
+def detect_notes_with_pitch(audio_file, sr=None, hop_length=512, threshold=0.5, min_note_distance_sec=0.1, max_note_duration_sec=5.0):
+    
     # Load audio file
     y, sr = librosa.load(audio_file, sr=sr)
     
@@ -134,14 +133,7 @@ def detect_notes_with_pitch(audio_file, sr=None, hop_length=512,
     return notes, flux_smoothed, adaptive_threshold
 
 def save_notes_to_midi(notes, output_file, tempo=120):
-    """
-    Convert detected notes to MIDI file
-    
-    Parameters:
-    notes: List of dictionaries containing note information
-    output_file: Path where to save the MIDI file
-    tempo: Tempo in BPM (default 120)
-    """
+
     # Create MIDI file with 1 track
     midi = MIDIFile(1)
     track = 0
