@@ -11,7 +11,7 @@ def detect_notes_with_pitch(audio_file, sr=None, hop_length=512, threshold=0.5, 
     y, sr = librosa.load(audio_file, sr=sr)
     
     # Compute spectrogram using a short time DFT
-    S = np.abs(librosa.stft(y, n_fft=8096, hop_length=hop_length))
+    S = np.abs(librosa.stft(y, n_fft=4096, hop_length=hop_length))
     
     # Compute spectral flux for onset detection
     diff = np.diff(S, axis=1)
@@ -250,7 +250,7 @@ def visualize_detected_notes(y, sr, notes, flux=None, threshold=None):
 # Example usage
 if __name__ == "__main__":
     # Replace with your harp recording
-    audio_file = "C:/4CA10/Angel of music piano.wav"
+    audio_file = "C:/4CA10/4CA20/Far Horizons.wav"
     
     # Detect notes
     notes, flux_smoothed, threshold = detect_notes_with_pitch(
