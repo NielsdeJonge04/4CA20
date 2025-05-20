@@ -247,10 +247,11 @@ def visualize_detected_notes(y, sr, notes, flux=None, threshold=None):
     plt.show()
 
 
-# Example usage
-if __name__ == "__main__":
+
+if __name__ == "__main__": 
+    #python best practice
     # Replace with your harp recording
-    audio_file = "C:/4CA10/4CA20/Far Horizons.wav"
+    audio_file = "C:/4CA10/4CA20/Angel of music.wav"
     
     # Detect notes
     notes, flux_smoothed, threshold = detect_notes_with_pitch(
@@ -269,7 +270,7 @@ if __name__ == "__main__":
         print(f"Note {i+1}: {note_name} at {note['onset_time']:.2f}s, velocity {note['velocity']}, duration {note['duration']:.2f}s")
     
     # Save to MIDI file
-    output_midi = "output.mid"
+    output_midi = "output.mid" #add your desired output path
     save_notes_to_midi(notes, output_midi, tempo=120)
     print(f"MIDI file saved as {output_midi}")
 
